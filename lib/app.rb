@@ -4,4 +4,8 @@ require './genre.rb'
 
 
 song_list = Dir.new("../data")
-puts song_list.entries
+
+song_list.entries.each do |song|
+	song.split("-")
+	puts song
+end
