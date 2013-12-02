@@ -26,14 +26,14 @@ class PlaylistApp
 		case @selection
 			when "artist"
 				Artist.all.each do |artist|
-					puts artist.name
+					puts "#{artist.name} - #{artist.songs.count} song"
 				end
 				puts "*" * 60
 				puts "Please select an artist from the list above."
 				@myartist = gets.chomp
 			when "genre"
 				Genre.all.each do |genre|
-					puts genre.name
+					puts "#{genre.name} - #{genre.artists.count} artist"
 				end
 				puts "*" * 60
 				puts "Please select a genre from the list above."
