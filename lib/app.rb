@@ -62,7 +62,8 @@ class PlaylistApp
 		puts "ARTISTS"
 		divider_thin
 		Artist.all.each do |artist|
-			puts "#{artist.name} - #{artist.songs.count} song"
+			artist.songs.count > 1? s="songs" : s="song"
+			puts "#{artist.name} - #{artist.songs.count} #{s}"
 		end
 		divider_thin
 		puts "Please select an artist from the list above."
@@ -74,7 +75,9 @@ class PlaylistApp
 		puts "GENRES"
 		divider_thin
 		Genre.all.each do |genre|
-			puts "#{genre.name}: #{genre.songs.count} songs, #{genre.artists.count} artists"
+			genre.songs.count > 1? s="songs" : s="song"
+			genre.artists.count > 1? a="artists" : a="artists"
+			puts "#{genre.name}: #{genre.songs.count} #{s}, #{genre.artists.count} #{a}"
 		end
 		divider_thin
 		puts "Please select a genre from the list above."
@@ -84,7 +87,8 @@ class PlaylistApp
 	def artist_page
 		artist = Artist.detect(@selection)
 		divider_fat
-		puts "#{artist.name} - #{artist.songs.count} songs"
+		artist.songs.count > 1? s="songs" : s="song"
+		puts "#{artist.name} - #{artist.songs.count} #{s}"
 		divider_thin
 		artist.songs.each_with_index do |song, index|
 			puts "#{index + 1}. #{song.name} - #{song.genre.name}"
@@ -129,10 +133,7 @@ app = PlaylistApp.new
 
 
 # TO DO:
-# remove .DS_store
-# make tests pass again
 # genres should be listed in order of most songs first
-# remove the extra two songs at the beginning? 
 # figure out why it says "goodbye" multiple times when end is selected
 # fix singular / plural of song(s) depending on how many are listed
 # make case insensitive
@@ -140,4 +141,3 @@ app = PlaylistApp.new
 # refactor parser and app
 # module
 # play song when selected
-# 
