@@ -21,7 +21,7 @@ class Parser
 
 	def delimit
 		@song_list_delimit = @song_list.map do |song|
-			song.split(/\s-\s|\[|\]/)
+			song.split(/\s-\s|\s\[|\]/)
 		end 
 		@song_list_delimit.each do |songarray|
 			songarray.delete_at(3) # deletes mp3 item

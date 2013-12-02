@@ -22,6 +22,12 @@ class Song
     @@all
   end
 
+   def self.detect(song_name)
+    @@all.detect do |song|
+      song.name == song_name
+    end
+  end
+
   def self.count
   	@@all.count
   end
