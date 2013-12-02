@@ -14,9 +14,9 @@ class Parser
 
 	def run
 		delimit
-		artist_list
+		# artist_list
 		create_objects
-		clean_up
+		# clean_up
 	end
 
 	def delimit
@@ -29,12 +29,12 @@ class Parser
 	end
 
 	# need to use this list somehow to remove duplicates from Artist.all, but need to name objects
-	def artist_list
-		@song_list_delimit.each do |songarray|
-			@artists << songarray[0]
-			@artists.uniq!
-		end
-	end
+	# def artist_list
+	# 	@song_list_delimit.each do |songarray|
+	# 		@artists << songarray[0]
+	# 		@artists.uniq!
+	# 	end
+	# end
 
 	# instantiates all objects relative to each other
 	def create_objects
@@ -61,9 +61,9 @@ class Parser
 		end
 	end
 
-	def clean_up
-		Artist.all.uniq!
-	end
+	# def clean_up
+	# 	Artist.all.uniq!
+	# end
 end
 
 # parser = Parser.new.run
