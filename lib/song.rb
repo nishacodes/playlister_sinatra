@@ -37,5 +37,3 @@ class Song
 	end
 end
 
-# song1 = Song.new("Rolling in the deep")
-# song1.genre("folk")

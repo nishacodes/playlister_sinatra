@@ -36,12 +36,4 @@ class Genre
 		@@all.clear
 	end
 
-
 end
-
-# rap = Genre.new
-# rap.name="rap"
-# puts rap.songs
-
-# puts Genre.all
-# puts 

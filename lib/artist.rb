@@ -29,7 +29,6 @@ class Artist
   # for every song in the array, get the genre from the Song class, genre method
   def genres
     songs.collect {|song| song.genre}.uniq
-
   end
 
   # CLASS METHODS
@@ -55,21 +54,6 @@ class Artist
 		@@all.clear
 	end
 end
-
-
-# artist = Artist.new
-# artist2 = Artist.new
-
-# # artist.add_song(song1)
-# # puts artist.genre
-
-# puts Artist.all
-# puts Artist.count
-
-# Artist.reset_artists
-# puts Artist.count
-
-
 
 
 

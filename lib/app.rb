@@ -6,7 +6,7 @@ require 'debugger'
 
 class PlaylistApp
 	def initialize
-		Parser.new.run
+		Parser.new
 		@selection
 		welcome
 	end
@@ -45,11 +45,10 @@ class PlaylistApp
 	end
 	
 	def evaluate_selection
-		
+		exit if @selection == "end"
 		artist_page if Artist.detect(@selection)
 		genre_page if Genre.detect(@selection)
 		song_page if Song.detect(@selection)	
-		exit if @selection == "end"
 		library_page if @selection == "library"
 		all_artists if @selection == "artist"
 		all_genres if @selection == "genre"
@@ -60,6 +59,7 @@ class PlaylistApp
 
 	### OUTPUT PAGES ###
 
+	# list all artists, and number of songs/artists
 	def all_artists
 		divider_fat
 		puts "ARTISTS"
@@ -73,11 +73,12 @@ class PlaylistApp
 		input
 	end
 
+	# list all genres, and number of songs/artists
 	def all_genres
 		divider_fat
 		puts "GENRES"
 		divider_thin
-		Genre.all.each do |genre|
+		Genre.all.collect do |genre|
 			genre.songs.count > 1? s="songs" : s="song"
 			genre.artists.count > 1? a="artists" : a="artists"
 			puts "#{genre.name}: #{genre.songs.count} #{s}, #{genre.artists.count} #{a}"
@@ -87,6 +88,7 @@ class PlaylistApp
 		input
 	end
 
+	# list info on specific artist
 	def artist_page
 		artist = Artist.detect(@selection)
 		divider_fat
@@ -110,7 +112,8 @@ class PlaylistApp
 		end
 		input
 	end
-	# should list all the available information on the song, it's artist and genre.
+	
+	# list info about a specific song
 	def song_page
 		song = Song.detect(@selection)
 		divider_fat
@@ -118,6 +121,7 @@ class PlaylistApp
 		input
 	end		
 
+	# list all songs, artist and genre
 	def library_page
 		divider_fat
 		Song.all.each_with_index do |song, index|
@@ -140,5 +144,5 @@ app = PlaylistApp.new
 # make case insensitive
 # write new tests
 # refactor parser and app
-# module
+# modules
 # play song when selected

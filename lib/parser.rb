@@ -9,9 +9,6 @@ class Parser
 	def initialize
 		@song_list = Dir.entries("../data").select {|f| !File.directory? f}
 		@song_list_delimit
-	end
-
-	def run
 		delimit
 		create_objects
 	end
@@ -26,18 +23,13 @@ class Parser
 		# songarray looks like this [artist, song, genre]
 		@song_list_delimit.each do |songarray|
 			Artist.find_or_create(songarray[0]).tap do |a|
-
-				
 				song = Song.new.tap do |s|
 					s.name = songarray[1]
-					
 					genre = Genre.find_or_create(songarray[2]).tap do |g|
 						g.artists
 					end
-
 					s.genre = genre
 				end
-
 				a.add_song(song)
 				a.genres
 			end
