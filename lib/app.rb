@@ -18,6 +18,7 @@ class PlaylistApp
 	end	
 
 	def options
+		puts "'library'	=> to view all songs"
 		puts "'artist'	=> to view all artists"
 		puts "'genre'		=> to view all genres"
 		puts "<artist name> 	=> to view songs by an artist"
@@ -47,6 +48,7 @@ class PlaylistApp
 		artist_page if Artist.detect(@selection)
 		genre_page if Genre.detect(@selection)
 		song_page if Song.detect(@selection)	
+		library_page if @selection == "library"
 		all_artists if @selection == "artist"
 		all_genres if @selection == "genre"
 		options if @selection == "help"
@@ -109,6 +111,14 @@ class PlaylistApp
 		input
 	end		
 
+	def library_page
+		divider_fat
+		Song.all.each_with_index do |song, index|
+			puts "#{index + 1}. #{song.name} - #{song.artist.name} (#{song.genre.name})"
+		end
+		input
+	end		
+
 	def exit
 		puts "Goodbye!"
 	end
@@ -130,3 +140,4 @@ app = PlaylistApp.new
 # refactor parser and app
 # module
 # play song when selected
+# 

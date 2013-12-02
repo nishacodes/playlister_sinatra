@@ -66,19 +66,6 @@ class Parser
 	# end
 end
 
-# parser = Parser.new.run
-
-# # LIST OUT ALL OBJECT NAMES
-# Artist.all.each do |artist|
-# 	puts artist.name
-# 		puts artist.genres
-# 	artist.songs.each do |song|
-# 		puts song.name
-# 		puts song.genre.name
-# 	end
-# end
-
-
 
 
 
