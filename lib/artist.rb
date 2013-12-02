@@ -1,10 +1,12 @@
 # require 'song'
 # require 'genre'
+# require 'classmethods'
 
 class Artist
 	attr_accessor :name, :songs, :genres
-
-	@@all = []
+  # extend Memorable
+	
+  @@all = []
 	
 	def initialize
 		@name
@@ -18,7 +20,6 @@ class Artist
   def add_song(song)
   	songs << song
     song.artist = self
-    # song.genre.artists << self
   end
   
   # count the songs in the array
@@ -50,7 +51,7 @@ class Artist
   	@@all.count
   end
 
-	def self.reset_artists
+	def self.reset_all
 		@@all.clear
 	end
 end

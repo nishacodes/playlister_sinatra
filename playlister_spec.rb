@@ -1,3 +1,8 @@
+require "./lib/song.rb"
+require "./lib/genre.rb"
+require "./lib/artist.rb"
+# require "./lib/classmethods.rb"
+
 describe "playlister" do
   it 'Can initialize an Artist' do
     lambda {Artist.new}.should_not raise_error
@@ -16,12 +21,12 @@ describe "playlister" do
   end
 
   it 'The Artist class can reset the artists that have been created' do
-    lambda {Artist.reset_artists}.should_not raise_error
+    lambda {Artist.reset_all}.should_not raise_error
     Artist.count.should eq(0)
   end
 
   it 'The Artist class can keep track of artists as they are created' do
-    Artist.reset_artists
+    Artist.reset_all
     artist = Artist.new
     Artist.all.should include(artist)
   end

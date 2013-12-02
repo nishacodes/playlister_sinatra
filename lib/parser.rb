@@ -29,7 +29,7 @@ class Parser
 						g.artists
 					end
 					s.genre = genre
-				end
+			end
 				a.add_song(song)
 				a.genres
 			end
