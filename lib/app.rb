@@ -2,7 +2,7 @@ require './artist.rb'
 require './song.rb'
 require './genre.rb'
 require './parser.rb'
-# require 'awesome_print'
+require 'debugger'
 
 class PlaylistApp
 	def initialize
@@ -45,15 +45,18 @@ class PlaylistApp
 	end
 	
 	def evaluate_selection
+		
 		artist_page if Artist.detect(@selection)
 		genre_page if Genre.detect(@selection)
 		song_page if Song.detect(@selection)	
+		exit if @selection == "end"
 		library_page if @selection == "library"
 		all_artists if @selection == "artist"
 		all_genres if @selection == "genre"
 		options if @selection == "help"
-		exit if @selection == "end"
+		
 	end
+
 
 	### OUTPUT PAGES ###
 
@@ -134,8 +137,6 @@ app = PlaylistApp.new
 
 # TO DO:
 # genres should be listed in order of most songs first
-# figure out why it says "goodbye" multiple times when end is selected
-# fix singular / plural of song(s) depending on how many are listed
 # make case insensitive
 # write new tests
 # refactor parser and app
