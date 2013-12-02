@@ -7,7 +7,7 @@ class Parser
 	attr_accessor :song_list
 
 	def initialize
-		@song_list = Dir.new("../data")
+		@song_list = Dir.entries("../data").select {|f| !File.directory? f}
 		@song_list_delimit
 		@artists = []
 	end
