@@ -21,11 +21,11 @@ class Parser
 
 	def delimit
 		@song_list_delimit = @song_list.map do |song|
-			song.split(/\s-\s|\s\[|\]/)
+			song.split(/\s-\s|\s\[|\].mp3/)
 		end 
-		@song_list_delimit.each do |songarray|
-			songarray.delete_at(3) # deletes mp3 item
-		end
+		# @song_list_delimit.each do |songarray|
+		# 	songarray.delete_at(3) # deletes mp3 item
+		# end
 	end
 
 	# need to use this list somehow to remove duplicates from Artist.all, but need to name objects
