@@ -14,7 +14,6 @@ class Parser
 	def run
 		delimit
 		create_objects
-		add_relationships
 	end
 
 	def delimit
@@ -26,45 +25,50 @@ class Parser
 		end
 	end
 
-
+	# instantiates all objects relative to each other
 	def create_objects
+		# songarray looks like this [artist, song, genre]
 		@song_list_delimit.each do |songarray|
-			Artist.new.tap do |artist|
-				artist.name = songarray[0]
+			Artist.new.tap do |a|
+				a.name = songarray[0] 
+				
 				song = Song.new.tap do |s|
 					s.name = songarray[1]
+					
 					genre = Genre.new.tap do |g|
 						g.name = songarray[2]
+						g.artists
 					end
+					
 					s.genre = genre
 				end
-				artist.add_song(song)
-			end
-		end
 
-		Artist.all.each do |artist|
-			puts artist.name
-			artist.songs.each do |song|
-				puts song.name
-				puts song.genre.name
-			end
-		end
-		# Song.all.each do |song|
-		# 	puts song.name
-		# 	puts song.genre.name
-		# end
-	end
-
-	def add_relationships
-		Artist.all.each do |artist|
-			@song_list_delimit.each do |songarray|
-				if artist == songarray[0]
-					artist.add_song("songarray[1]")
-				end
+				a.add_song(song)
+				a.genres
 			end
 		end
 	end
+
+	
+
 
 end
 
 parser = Parser.new.run
+
+# # LIST OUT ALL OBJECT NAMES
+# Artist.all.each do |artist|
+# 	puts artist.name
+# 		puts artist.genres
+# 	artist.songs.each do |song|
+# 		puts song.name
+# 		puts song.genre.name
+# 	end
+# end
+
+
+
+
+
+
+
