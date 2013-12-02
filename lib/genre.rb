@@ -18,7 +18,17 @@ class Genre
 		@@all
 	end
 
-	 def self.count
+  def self.detect(genre_name)
+    @@all.detect do |genre|
+      genre.name == genre_name
+    end
+  end
+
+  def self.find_or_create(genre_name)
+    detect(genre_name) || Genre.new.tap {|g| g.name = genre_name}
+  end
+
+  def self.count
   	@@all.count
   end
 

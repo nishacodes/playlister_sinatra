@@ -9,11 +9,14 @@ class Parser
 	def initialize
 		@song_list = Dir.new("../data")
 		@song_list_delimit
+		@artists = []
 	end
 
 	def run
 		delimit
+		artist_list
 		create_objects
+		clean_up
 	end
 
 	def delimit
@@ -25,21 +28,30 @@ class Parser
 		end
 	end
 
+	# need to use this list somehow to remove duplicates from Artist.all, but need to name objects
+	def artist_list
+		@song_list_delimit.each do |songarray|
+			@artists << songarray[0]
+			@artists.uniq!
+		end
+	end
+
 	# instantiates all objects relative to each other
 	def create_objects
 		# songarray looks like this [artist, song, genre]
 		@song_list_delimit.each do |songarray|
-			Artist.new.tap do |a|
-				a.name = songarray[0] 
+			Artist.find_or_create(songarray[0]).tap do |a|
+
 				
 				song = Song.new.tap do |s|
 					s.name = songarray[1]
 					
-					genre = Genre.new.tap do |g|
-						g.name = songarray[2]
+					genre = Genre.find_or_create(songarray[2]).tap do |g|
+					# genre = Genre.new.tap do |g|
+						# g.name = songarray[2]
 						g.artists
 					end
-					
+
 					s.genre = genre
 				end
 
@@ -49,12 +61,12 @@ class Parser
 		end
 	end
 
-	
-
-
+	def clean_up
+		Artist.all.uniq!
+	end
 end
 
-parser = Parser.new.run
+# parser = Parser.new.run
 
 # # LIST OUT ALL OBJECT NAMES
 # Artist.all.each do |artist|

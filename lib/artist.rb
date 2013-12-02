@@ -37,6 +37,16 @@ class Artist
     @@all
   end
 
+  def self.detect(artist_name)
+    @@all.detect do |artist|
+      artist.name == artist_name
+    end
+  end
+
+  def self.find_or_create(artist_name)
+    detect(artist_name) || Artist.new.tap {|a| a.name = artist_name}
+  end
+
   def self.count
   	@@all.count
   end
