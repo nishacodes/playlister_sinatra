@@ -12,8 +12,8 @@ class Song
 
 	# sets the genre name
 	# also adds this song to that genre in the Genre class
-	def genre=(new_genre)
-		@genre = new_genre
+	def genre=(genre)
+		@genre = genre
 		genre.songs << self
 	end
 
