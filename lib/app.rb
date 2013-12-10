@@ -5,9 +5,9 @@ require './parser.rb'
 require 'debugger'
 
 class PlaylistApp
+	attr_accessor :selection
 	def initialize
 		Parser.new
-		@selection
 		welcome
 	end
 
@@ -144,5 +144,5 @@ app = PlaylistApp.new
 # make case insensitive
 # write new tests
 # refactor parser and app
-# modules
+# incorporate modules and move output pages to appropriate class
 # play song when selected
