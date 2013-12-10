@@ -28,11 +28,24 @@ module Playlister
       end
     end
 
+    get '/artist/:name' do
+      @artist_name = params[:name]
+      @current_artist= Artist.detect(@artist_name)
+      erb :artist_detail
+    end
+
     get '/genre/:name' do
       @genre_name = params[:name]
       @current_genre = Genre.detect(@genre_name)
       erb :genre_detail
     end
+
+    # get '/song/:name' do
+    #   @song_name = params[:name]
+    #   @current_genre = Genre.detect(@genre_name)
+    #   erb :genre_detail
+    # end
+
 
 
   end

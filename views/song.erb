@@ -1,1 +1,7 @@
-Song
+<h1>Song</h1>
+
+<ul> 
+  <% Song.all.each do |song| %>
+    <li> <%= "#{song.name} - #{song.artist.name} (#{song.genre.name})" %> </li>
+  <% end %>
+</ul>

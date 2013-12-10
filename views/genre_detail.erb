@@ -1,6 +1,7 @@
 <h1> <%= @genre_name %> </h1>
 
-<ul> <% @current_genre.songs.each_with_index do |song, index| %>
-  <li> <%= "#{index + 1}. #{song.artist.name} - #{song.name}" %> </li>
+<ul> 
+  <% @current_genre.songs.each_with_index do |song, index| %>
+    <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
   <% end %>
 </ul>

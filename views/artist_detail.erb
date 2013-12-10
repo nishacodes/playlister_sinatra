@@ -1,0 +1,8 @@
+<h1> <%= @artist_name %></h1>
+
+<ul> 
+  <% @current_artist.songs.each do |song| %>
+    <li> <%= "#{song.name}" %> </li>
+  <% end %>
+</ul>
+
