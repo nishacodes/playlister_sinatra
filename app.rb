@@ -30,7 +30,7 @@ module Playlister
 
     get '/genre/:name' do
       @genre_name = params[:name]
-      genre = Genre.detect(@genre_name)
+      @current_genre = Genre.detect(@genre_name)
       erb :genre_detail
     end
 
