@@ -1,7 +1,7 @@
-require './artist.rb'
-require './song.rb'
-require './genre.rb'
-require 'debugger'
+# require './artist.rb'
+# require './song.rb'
+# require './genre.rb'
+# require 'debugger'
 
 class Parser
 	attr_accessor :song_list, :song_list_delimit
