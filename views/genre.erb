@@ -2,7 +2,7 @@
 
 <ul> <% Genre.all.each do |genre| %>
   <li> 
-    <a> 
+    <a href=<%= "/genre/#{genre.name}"%>> 
       <%= genre.name %> 
     </a> 
   </li>
