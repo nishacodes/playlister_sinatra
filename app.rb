@@ -2,20 +2,22 @@ require 'bundler'
 Bundler.require
 require './lib/artist.rb'
 require './lib/genre.rb'
-require './lib/parser.rb'
 require './lib/song.rb'
-
 
 
 module Playlister
   class App < Sinatra::Application
+    
+    before do 
+      Parser.new
+    end
+
     get '/' do
       erb :index
     end
 
     get '/:category' do
       @category = params[:category]
-      
       if @category == "artist"
         erb :artist
       elsif @category == "genre"
@@ -25,13 +27,19 @@ module Playlister
       end
     end
 
+    get 'genre/:name' do
+      @name = params[:name]
+      erb :genre_detail
+    end
+
+
   end
 
   class Parser
     attr_accessor :song_list, :song_list_delimit
 
     def initialize
-      @song_list = Dir.entries("../data").select {|f| !File.directory? f}
+      @song_list = Dir.entries("./public/data").select {|f| !File.directory? f}
       @song_list_delimit
       delimit
       create_objects

@@ -1,1 +1,6 @@
-Genre
+<h1>Genre</h1>
+
+<ul> <% Genre.all.collect do |genre| %>
+  <li> <%= genre.name %> </li>
+  <% end %>
+</ul>

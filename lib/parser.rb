@@ -1,13 +1,13 @@
-# require './artist.rb'
-# require './song.rb'
-# require './genre.rb'
-# require 'debugger'
+require './artist.rb'
+require './song.rb'
+require './genre.rb'
+require 'debugger'
 
 class Parser
 	attr_accessor :song_list, :song_list_delimit
 
 	def initialize
-		@song_list = Dir.entries("../data").select {|f| !File.directory? f}
+		@song_list = Dir.entries("../public/data").select {|f| !File.directory? f}
 		@song_list_delimit
 		delimit
 		create_objects
