@@ -1,5 +1,5 @@
 class Song
-	attr_accessor :name, :genre, :artist
+	attr_accessor :name, :genre, :artist, :video_id
 
 	@@all = []
 
@@ -16,6 +16,10 @@ class Song
 		@genre = genre
 		genre.songs << self
 	end
+
+  def add_video_id(id)
+    @video_id = id
+  end
 
 	# CLASS METHODS
 	def self.all

@@ -2,7 +2,11 @@
 
 <ul> 
   <% @current_artist.songs.each do |song| %>
-    <li> <%= "#{song.name}" %> </li>
+    <a href="/artist/<%= @artist_name %>/<%= song.name.gsub(' ','_') %>">
+      <li> 
+        <%= "#{song.name}" %> 
+      </li>
+    </a>
   <% end %>
 </ul>
 

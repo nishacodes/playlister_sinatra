@@ -11,7 +11,6 @@ module Playlister
     
     before do 
       Parser.new
-      # partial
     end
 
     get '/' do
@@ -33,7 +32,7 @@ module Playlister
     end
 
     get '/artist/:name' do
-      @artist_name = params[:name]
+      @artist_name = params[:name].gsub('_',' ')
       @title = @artist_name
       @current_artist= Artist.detect(@artist_name)
       erb :artist_detail
@@ -46,11 +45,34 @@ module Playlister
       erb :genre_detail
     end
 
-    # get '/song/:name' do
+    # get '/song' do
     #   @song_name = params[:name]
-    #   @current_genre = Genre.detect(@genre_name)
-    #   erb :genre_detail
+    #   @title = @song_name
+    #   @current_song = Song.detect(@genre_name)
+    #   erb :song
     # end
+
+    get '/:category/:name/:song' do
+      @song_name = params[:song].gsub('_',' ')
+      @current_song = Song.detect(@song_name)
+      @current_song.add_video_id("rYEDA3JcQqw")
+      case params[:category]
+        when "genre"
+          @genre_name = params[:name]
+          @title = @genre_name
+          @current_genre = Genre.detect(@genre_name)
+          erb :genre_detail
+        when "artist"
+          @artist_name = params[:name].gsub('_',' ')
+          @title = @artist_name
+          @current_artist= Artist.detect(@artist_name)
+          erb :artist_detail
+        when "song"
+          @stub = params[:name]
+          erb :song
+        end
+    end
+
 
     helpers do 
       def simple_partial(template)

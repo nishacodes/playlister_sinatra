@@ -2,6 +2,8 @@
 
 <ul> 
   <% Song.all.each do |song| %>
-    <li> <%= "#{song.name} - #{song.artist.name} (#{song.genre.name})" %> </li>
+    <a href="/song/#/<%= song.name.gsub(' ','_') %>">
+      <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
+    </a>
   <% end %>
 </ul>

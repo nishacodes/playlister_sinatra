@@ -2,6 +2,10 @@
 
 <ul> 
   <% @current_genre.songs.each_with_index do |song, index| %>
-    <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
+    <a href="/genre/<%= @genre_name %>/<%= song.name.gsub(' ','_') %>">
+      <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
+    </a>
   <% end %>
+
+  <%= @current_song.name %>
 </ul>
