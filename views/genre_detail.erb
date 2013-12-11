@@ -1,4 +1,4 @@
-<h1> <%= @genre_name %> </h1>
+<%= simple_partial :_page_title %>
 
 <ul> 
   <% @current_genre.songs.each_with_index do |song, index| %>

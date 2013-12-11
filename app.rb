@@ -11,6 +11,7 @@ module Playlister
     
     before do 
       Parser.new
+      # partial
     end
 
     get '/' do
@@ -20,22 +21,27 @@ module Playlister
     get '/:category' do
       @category = params[:category]
       if @category == "artist"
+        @title = "Artists"
         erb :artist
       elsif @category == "genre"
+        @title = "Genres"
         erb :genre
       else @category == "song"
+        @title = "Songs"
         erb :song
       end
     end
 
     get '/artist/:name' do
       @artist_name = params[:name]
+      @title = @artist_name
       @current_artist= Artist.detect(@artist_name)
       erb :artist_detail
     end
 
     get '/genre/:name' do
       @genre_name = params[:name]
+      @title = @genre_name
       @current_genre = Genre.detect(@genre_name)
       erb :genre_detail
     end
@@ -46,7 +52,11 @@ module Playlister
     #   erb :genre_detail
     # end
 
-
+    helpers do 
+      def simple_partial(template)
+        erb template
+      end
+    end
 
   end
 end
