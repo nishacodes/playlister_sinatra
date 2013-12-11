@@ -4,6 +4,7 @@ require './lib/artist.rb'
 require './lib/genre.rb'
 require './lib/song.rb'
 require './lib/parser.rb'
+# require './lib/scraper.rb'
 
 
 module Playlister
@@ -44,14 +45,7 @@ module Playlister
       @current_genre = Genre.detect(@genre_name)
       erb :genre_detail
     end
-
-    # get '/song' do
-    #   @song_name = params[:name]
-    #   @title = @song_name
-    #   @current_song = Song.detect(@genre_name)
-    #   erb :song
-    # end
-
+    
     get '/:category/:name/:song' do
       @song_name = params[:song].gsub('_',' ')
       @current_song = Song.detect(@song_name)
