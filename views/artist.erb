@@ -6,7 +6,7 @@
   <%= simple_partial :_page_title %>
   <ul class="list"> 
     <% Artist.all.each do |artist|%>
-      <a href=<%= "/artist/#{artist.name.gsub(' ','_')}"%>> 
+      <a href=<%="/artist/#{artist.name.gsub(' ','_')}"%>> 
         <li><%= artist.name %></li>
       </a>
     <% end %>

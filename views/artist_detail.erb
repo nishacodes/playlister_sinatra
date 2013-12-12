@@ -4,16 +4,12 @@
 
 <div class="songlist white"> 
   <%= simple_partial :_page_title %>
-
   <ul class="list"> 
     <% @current_artist.songs.each do |song| %>
-      <a href="/artist/<%= @artist_name %>/<%= song.name.gsub(' ','_') %>">
-        <li> 
-          <%= "#{song.name}" %> 
-        </li>
+      <a href=<%="/artist/#{@artist_name}/#{song.name.gsub(' ','_')}"%>>
+        <li> <%= song.name %> </li>
       </a>
     <% end %>
   </ul>
-
 </div>
 

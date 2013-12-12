@@ -14,10 +14,13 @@ h1 {
 }
 
 
-h3 {
+h3, h3 a {
   font-size: 24pt;
+  font-family: 'Varela Round', sans-serif;
+  color: black;
 }
-h4 {
+
+h4, h4 a {
   font-size: 18pt;
   font-weight: 600;
 }
@@ -25,9 +28,7 @@ h4 {
 .container {
   width: 80%;
   margin: 0 auto;
-  padding-top: 50px;
-
-  
+  padding-top: 50px;  
 }
 
 .playlist {
@@ -68,14 +69,19 @@ h4 {
   background-color: black;
 }
 
+.centering {
+  width: 0px;
+  height: 100%;
+  margin-left: 50%;
+}
+
 iframe {
-  margin: 0px 130px 0px 130px;
+  margin-left: -426px;
 }
 
 img.main {
   background-color: black;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -350px;
   position: relative;
   padding: 18px;
 }
@@ -103,14 +109,14 @@ img.main {
 }
 
 #nav li:hover {
-  background-color: gray;
+  background-color: #D1D1D1;
 }
 
 li.search {
   float: left; 
   width: 45%;
   padding-left: 0px;
-  border-right-color: gray;
+  border-right-color: #D1D1D1;
   border-right-style: solid;
   border-right-width: 2px;
 }
