@@ -4,6 +4,7 @@ require './lib/artist.rb'
 require './lib/genre.rb'
 require './lib/song.rb'
 require './lib/parser.rb'
+require 'youtube_it'
 # require './lib/scraper.rb'
 
 

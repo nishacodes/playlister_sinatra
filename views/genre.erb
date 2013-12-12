@@ -13,3 +13,14 @@
     <% end %>
   </ul>
 </div>
+
+<!-- 
+YOUTUBE_IT GEM 
+client = YouTubeIt::Client.new
+searchdata = client.videos_by(:query => "adele - rolling in the deep", :page => 1, :per_page => 1)
+songdata = searchdata.videos
+videodata = songdata[0]
+video_id_long = videodata.video_id
+regex = /video:(.*)/
+video_id = video_id_long.match(regex)
+=> "tag:youtube.com,2008:video:rYEDA3JcQqw" -->
