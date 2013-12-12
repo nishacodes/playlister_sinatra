@@ -1,9 +1,15 @@
-<%= simple_partial :_page_title %>
+<div class="playlist white">
+  <h4> Playlist </h4>
+</div>
 
-<ul> 
-  <% @current_genre.songs.each_with_index do |song, index| %>
-    <a href="/genre/<%= @genre_name %>/<%= song.name.gsub(' ','_') %>">
-      <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
-    </a>
-  <% end %>
-</ul>
+<div class="songlist white"> 
+  <%= simple_partial :_page_title %>
+
+  <ul class="list"> 
+    <% @current_genre.songs.each_with_index do |song, index| %>
+      <a href="/genre/<%= @genre_name %>/<%= song.name.gsub(' ','_') %>">
+        <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
+      </a>
+    <% end %>
+  </ul>
+</div>

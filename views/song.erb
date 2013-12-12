@@ -1,9 +1,16 @@
-<%= simple_partial :_page_title %>
+<div class="playlist white">
+  <h4> Playlist </h4>
+</div>
 
-<ul> 
-  <% Song.all.each do |song| %>
-    <a href="/song/#/<%= song.name.gsub(' ','_') %>">
-      <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
-    </a>
-  <% end %>
-</ul>
+<div class="songlist white"> 
+  <%= simple_partial :_page_title %>
+
+  <ul class="list"> 
+    <% Song.all.each do |song| %>
+      <a href="/song/#/<%= song.name.gsub(' ','_') %>">
+        <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
+      </a>
+    <% end %>
+  </ul>
+
+</div>

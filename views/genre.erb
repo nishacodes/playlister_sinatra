@@ -1,10 +1,17 @@
-<%= simple_partial :_page_title %>
 
-<ul> <% Genre.all.each do |genre| %>
-  <li> 
-    <a href=<%= "/genre/#{genre.name}"%>> 
-      <%= genre.name %> 
-    </a> 
-  </li>
-  <% end %>
-</ul>
+
+<div class="playlist white">
+  <h4> Playlist </h4>
+</div>
+
+<div class="songlist white"> 
+  <%= simple_partial :_page_title %>
+  <ul class="list"> <% Genre.all.each do |genre| %>
+    <li> 
+      <a href=<%= "/genre/#{genre.name}"%>> 
+        <%= genre.name %> 
+      </a> 
+    </li>
+    <% end %>
+  </ul>
+</div>

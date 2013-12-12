@@ -33,13 +33,15 @@ module Playlister
     end
 
     get '/artist/:name' do
+      @category = "artist"
       @artist_name = params[:name].gsub('_',' ')
       @title = @artist_name
-      @current_artist= Artist.detect(@artist_name)
+      @current_artist = Artist.detect(@artist_name)
       erb :artist_detail
     end
 
     get '/genre/:name' do
+      @category = "genre"
       @genre_name = params[:name]
       @title = @genre_name
       @current_genre = Genre.detect(@genre_name)

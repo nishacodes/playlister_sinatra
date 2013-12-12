@@ -1,9 +1,14 @@
-<%= simple_partial :_page_title %>
+<div class="playlist white">
+  <h4> Playlist </h4>
+</div>
 
-<ul> 
-  <% Artist.all.each do |artist|%>
-    <a href=<%= "/artist/#{artist.name.gsub(' ','_')}"%>> 
-      <li><%= artist.name %></li>
-    </a>
-  <% end %>
-</ul>
+<div class="songlist white"> 
+  <%= simple_partial :_page_title %>
+  <ul class="list"> 
+    <% Artist.all.each do |artist|%>
+      <a href=<%= "/artist/#{artist.name.gsub(' ','_')}"%>> 
+        <li><%= artist.name %></li>
+      </a>
+    <% end %>
+  </ul>
+</div>
