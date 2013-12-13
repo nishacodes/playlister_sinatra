@@ -52,7 +52,7 @@ module Playlister
     get '/:category/:name/:song' do
       @song_name = params[:song].gsub('_',' ')
       @current_song = Song.detect(@song_name)
-      @current_song.add_video_id("rYEDA3JcQqw")
+      @current_song.add_video_id
       case params[:category]
         when "genre"
           @genre_name = params[:name]

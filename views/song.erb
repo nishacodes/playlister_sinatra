@@ -8,6 +8,7 @@
     <% Song.all.each do |song| %>
       <a href="/song/#/<%= song.name.gsub(' ','_') %>">
         <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
+        <li><%= song.video_id %></li>
       </a>
     <% end %>
   </ul>
