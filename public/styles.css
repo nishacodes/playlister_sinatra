@@ -11,6 +11,7 @@ h1 {
   font-family: 'Varela Round', sans-serif;
   font-size: 36pt;
   letter-spacing: 3px;
+  color: black;
 }
 
 
@@ -57,7 +58,7 @@ h4, h4 a {
 .header-container {
   height: 60px;
   padding: 10px 0px 0px 0px;
-  background-color: rgba(255,255,255,1);
+  background-color:#74DBE8;
 }
 
 .video_container {

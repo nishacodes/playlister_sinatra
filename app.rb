@@ -4,9 +4,8 @@ require './lib/artist.rb'
 require './lib/genre.rb'
 require './lib/song.rb'
 require './lib/parser.rb'
-require 'youtube_it'
 require './lib/scraper.rb'
-
+# require 'youtube_it'
 
 module Playlister
   class App < Sinatra::Application
@@ -83,3 +82,14 @@ module Playlister
 
   end
 end
+
+
+# TO DO
+# deploy on heroku
+# fix the song list page (song links not working)
+# incorporate spotify?
+# add play buttons
+# format songlists
+# jquery drag and drop to playlist
+# autoplay the next song on the playlist
+# use javascript to keep the video partial always there and playing, even when user is clicking around
