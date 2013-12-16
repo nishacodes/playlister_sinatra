@@ -5,15 +5,15 @@ require './lib/genre.rb'
 require './lib/song.rb'
 require './lib/parser.rb'
 require 'youtube_it'
-# require './lib/scraper.rb'
+require './lib/scraper.rb'
 
 
 module Playlister
   class App < Sinatra::Application
     
-    before do 
-      Parser.new
-    end
+    
+    Parser.new
+    
 
     get '/' do
       erb :index
@@ -52,7 +52,12 @@ module Playlister
     get '/:category/:name/:song' do
       @song_name = params[:song].gsub('_',' ')
       @current_song = Song.detect(@song_name)
-      @current_song.add_video_id
+      # scrape youtube video below
+      my_scraper = Video_Scraper.new(@current_song.artist.url_format, @current_song.url_format)
+      url = my_scraper.video # scraped url from youtube API
+      match_obj = /.*v\/(.*)\?.*/.match(url)
+      @video = match_obj[1]
+      # load the same page user is currently on below
       case params[:category]
         when "genre"
           @genre_name = params[:name]
@@ -69,7 +74,6 @@ module Playlister
           erb :song
         end
     end
-
 
     helpers do 
       def simple_partial(template)

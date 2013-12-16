@@ -3,7 +3,7 @@
     <% if @current_song.nil? %>
       <img src="/images/turntable.png" alt="turntable" width="640" class="main">
     <% else %>
-      <iframe width="853" height="480" src="//www.youtube.com/embed/<%=@current_song.video_id%>" frameborder="0" allowfullscreen> </iframe> 
+      <iframe width="853" height="480" src="//www.youtube.com/embed/<%= @video %>?autoplay=1" frameborder="0" allowfullscreen> </iframe> 
     <% end %>
   </div>
 </div>

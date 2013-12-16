@@ -32,6 +32,10 @@ class Artist
     songs.collect {|song| song.genre}.uniq
   end
 
+  # used for scraper / nokogiri
+  def url_format
+    self.name.gsub(" ", "%20").gsub(".", "").downcase
+  end
   # CLASS METHODS
   def self.all
     @@all

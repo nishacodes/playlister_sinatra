@@ -8,7 +8,6 @@ class Song
 		@artist
 		@genre
 		@@all << self
-    @video_id = add_video_id
 	end
 
 	# sets the genre name
@@ -17,15 +16,10 @@ class Song
 		@genre = genre
 		genre.songs << self
 	end
-  
-  def add_video_id
-    client = YouTubeIt::Client.new
-    searchdata = client.videos_by(:query => "#{@artist} - #{@name}", :page => 1, :per_page => 1)
-    songdata = searchdata.videos
-    videodata = songdata[0]
-    video_id_long = videodata.video_id
-    video_object = video_id_long.match(/video:(.*)/)
-    video_object[1]
+
+  # used for scraper / nokogiri
+  def url_format
+    self.name.gsub(" ", "%20").gsub(".", "").downcase
   end
 
 	# CLASS METHODS
