@@ -3,10 +3,10 @@
 </div>
 
 <div class="songlist white"> 
-  <%= simple_partial :_page_title %>
+
   <ul class="list"> 
     <% Song.all.each do |song| %>
-      <a href="/song/#/<%= song.name.gsub(' ','_') %>">
+      <a href="/song/_/<%= song.name.gsub(' ','_') %>">
         <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
         <li><%= song.video_id %></li>
       </a>

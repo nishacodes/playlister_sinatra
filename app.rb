@@ -9,11 +9,9 @@ require './lib/scraper.rb'
 
 module Playlister
   class App < Sinatra::Application
-    
-    
+      
     Parser.new
-    
-
+  
     get '/' do
       erb :index
     end
@@ -49,6 +47,7 @@ module Playlister
     end
     
     get '/:category/:name/:song' do
+      params.inspect
       @song_name = params[:song].gsub('_',' ')
       @current_song = Song.detect(@song_name)
       # scrape youtube video below
@@ -67,9 +66,9 @@ module Playlister
           @artist_name = params[:name].gsub('_',' ')
           @title = @artist_name
           @current_artist= Artist.detect(@artist_name)
+          params.inspect
           erb :artist_detail
         when "song"
-          @stub = params[:name]
           erb :song
         end
     end
