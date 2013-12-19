@@ -7,7 +7,7 @@
   <ul class="list"> <% Genre.all.each do |genre| %>
     <li> 
       <a href=<%= "/genre/#{genre.name}"%>> 
-        <%= genre.name %> 
+        <%= genre.name.capitalize %> 
       </a> 
     </li>
     <% end %>

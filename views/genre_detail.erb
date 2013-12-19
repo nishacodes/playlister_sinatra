@@ -6,7 +6,7 @@
   <%= simple_partial :_page_title %>
   <ul class="list"> 
     <% @current_genre.songs.each_with_index do |song, index| %>
-      <a href="/genre/<%= @genre_name %>/<%= song.name.gsub(' ','_') %>">
+      <a href="/genre/<%= @genre_name.downcase %>/<%= song.name.gsub(' ','_') %>">
         <li> <%= "#{song.artist.name} - #{song.name}" %> </li>
       </a>
     <% end %>

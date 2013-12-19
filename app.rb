@@ -41,7 +41,7 @@ module Playlister
     get '/genre/:name' do
       @category = "genre"
       @genre_name = params[:name]
-      @title = @genre_name
+      @title = @genre_name.capitalize
       @current_genre = Genre.detect(@genre_name)
       erb :genre_detail
     end

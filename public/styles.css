@@ -39,7 +39,7 @@ h4, h4 a {
 }
 
 .songlist {
-  width: 63%;
+  width: 50%;
   min-height: 500px;
   float: left;
   margin-left: 7%;
@@ -107,7 +107,7 @@ img.main {
 
 #nav li {
   float: left; 
-  padding: 5px 50px 5px 50px;
+  padding: 5px 40px 5px 40px;
   height: 100%;
 }
 
@@ -115,13 +115,29 @@ img.main {
   background-color: #D1D1D1;
 }
 
+input.searchbar {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 24pt;
+  font-family: 'Varela Round', sans-serif;
+  color: black;
+}
+
+button.search {
+  display: none;
+}
+
 li.search {
   float: left; 
   width: 45%;
   padding-left: 0px;
+  padding-right: 0px;
   border-right-color: #D1D1D1;
   border-right-style: solid;
   border-right-width: 2px;
+  color: black;
+
 }
 
 ul.list {
@@ -129,6 +145,7 @@ ul.list {
   font-size: 14pt;
   color: gray;
 }
+
 
 .results-column {
   width: 33%;

@@ -7,7 +7,7 @@
       <% if @song_results.size > 0 %>
         <% @song_results.each do |song| %>
           <a href="/artist/<%= song.artist.name.gsub(' ','_') %>/<%= song.name.gsub(' ','_') %>">
-            <li> <%= song.name %> </li>
+            <li> <%= "#{song.name} - #{song.artist.name}" %> </li>
           </a>
         <% end %>
       <% else %>
@@ -38,7 +38,7 @@
       <% if @genre_results.size > 0 %>
         <% @genre_results.each do |genre| %>
           <a href=<%= "/genre/#{genre.name}"%>>  
-            <li> <%= genre.name %> </li>
+            <li> <%= genre.name.capitalize %> </li>
           </a>
         <% end %>
       <% else %>
