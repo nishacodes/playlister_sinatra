@@ -1,0 +1,50 @@
+<div class="search_results white"> 
+  <%= simple_partial :_page_title %>
+  <br/>
+  <div class="results-column"> 
+    <ul class="list"> 
+      <h4> Songs </h4>
+      <% if @song_results.size > 0 %>
+        <% @song_results.each do |song| %>
+          <a href="/artist/<%= song.artist.name.gsub(' ','_') %>/<%= song.name.gsub(' ','_') %>">
+            <li> <%= song.name %> </li>
+          </a>
+        <% end %>
+      <% else %>
+        No song results
+      <% end %>
+    </ul>
+  </div>
+
+   <div class="results-column"> 
+    <ul class="list"> 
+      <h4> Artists </h4>
+      <% if @artist_results.size > 0 %>
+        <% @artist_results.each do |artist| %>
+          <a href=<%="/artist/#{artist.name.gsub(' ','_')}"%>> 
+            <li> <%= artist.name %> </li>
+          </a>
+        <% end %>
+      <% else %>
+        No artist results
+      <% end %>
+    </ul>
+  </div>
+
+
+   <div class="results-column"> 
+    <ul class="list"> 
+      <h4> Genres </h4>
+      <% if @genre_results.size > 0 %>
+        <% @genre_results.each do |genre| %>
+          <a href=<%= "/genre/#{genre.name}"%>>  
+            <li> <%= genre.name %> </li>
+          </a>
+        <% end %>
+      <% else %>
+        No genre results
+      <% end %>
+    </ul>
+  </div>
+
+</div>

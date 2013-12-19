@@ -47,7 +47,6 @@ module Playlister
     end
     
     get '/:category/:name/:song' do
-      params.inspect
       @song_name = params[:song].gsub('_',' ')
       @current_song = Song.detect(@song_name)
       # scrape youtube video below
@@ -73,9 +72,34 @@ module Playlister
         end
     end
 
+    post '/search' do
+      @criteria = params["search"]
+      @title = "Search Results for '#{@criteria}'"
+      search(@criteria)
+      erb :search_results
+    end
+
     helpers do 
       def simple_partial(template)
         erb template
+      end
+
+      def search(word)
+        @song_results = []
+        @artist_results = []
+        @genre_results = []
+        word.downcase!
+        Song.all.each do |song|
+         @song_results << song if song.name.downcase.include?(word)
+         @song_results << song if song.artist.name.downcase.include?(word)
+         @song_results << song if song.genre.name.downcase.include?(word)
+        end
+        Artist.all.each do |artist|
+         @artist_results << artist if artist.name.downcase.include?(word)
+        end
+        Genre.all.each do |genre|
+         @genre_results << genre if genre.name.downcase.include?(word)
+        end
       end
     end
 

@@ -53,6 +53,8 @@ h4, h4 a {
   -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow:    4px 4px 10px rgba(0, 0, 0, 0.1);
   box-shadow:         4px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  padding: 20px;
 }
 
 .header-container {
@@ -128,3 +130,9 @@ ul.list {
   color: gray;
 }
 
+.results-column {
+  width: 33%;
+  float: left;
+  position: relative;
+  display: block;
+}
